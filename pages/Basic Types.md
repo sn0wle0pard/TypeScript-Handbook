@@ -1,9 +1,9 @@
-# Introduction
+# 소개
 
 For programs to be useful, we need to be able to work with some of the simplest units of data: numbers, strings, structures, boolean values, and the like.
 In TypeScript, we support much the same types as you would expect in JavaScript, with a convenient enumeration type thrown in to help things along.
 
-# Boolean
+# 논리형(Boolean)
 
 The most basic datatype is the simple true/false value, which JavaScript and TypeScript call a `boolean` value.
 
@@ -11,11 +11,12 @@ The most basic datatype is the simple true/false value, which JavaScript and Typ
 let isDone: boolean = false;
 ```
 
-# Number
+# 숫자형(Number)
 
-As in JavaScript, all numbers in TypeScript are floating point values.
-These floating point numbers get the type `number`.
-In addition to hexadecimal and decimal literals, TypeScript also supports binary and octal literals introduced in ECMAScript 2015.
+JavaScript 처럼 TypeScript의 모든 숫자는 부동소수점 값입니다.
+이런 부동소수점 값들은 `number`자료형을 가집니다.
+TypeScript는 16진수 밎 10진수 표기법 외에도,
+ECMAScript 2015에 도입된 바이너리 밎 8진수를 지원합니다.
 
 ```ts
 let decimal: number = 6;
@@ -24,18 +25,18 @@ let binary: number = 0b1010;
 let octal: number = 0o744;
 ```
 
-# String
+# 문자형(String)
 
 Another fundamental part of creating programs in JavaScript for webpages and servers alike is working with textual data.
 As in other languages, we use the type `string` to refer to these textual datatypes.
-Just like JavaScript, TypeScript also uses double quotes (`"`) or single quotes (`'`) to surround string data.
+Just like JavaScript, TypeScript also uses 큰 따옴표(`"`) or (`'`) to surround string data.
 
 ```ts
 let color: string = "blue";
 color = 'red';
 ```
 
-You can also use *template strings*, which can span multiple lines and have embedded expressions.
+You can also use *템플릿 문자열*, which can span multiple lines and have embedded expressions.
 These strings are surrounded by the backtick/backquote (`` ` ``) character, and embedded expressions are of the form `${ expr }`.
 
 ```ts
@@ -50,10 +51,10 @@ This is equivalent to declaring `sentence` like so:
 
 ```ts
 let sentence: string = "Hello, my name is " + fullName + ".\n\n" +
-    "I'll be " + (age + 1) + " years old next month."
+"I'll be " + (age + 1) + " years old next month."
 ```
 
-# Array
+# 배열(Array)
 
 TypeScript, like JavaScript, allows you to work with arrays of values.
 Array types can be written in one of two ways.
@@ -69,7 +70,7 @@ The second way uses a generic array type, `Array<elemType>`:
 let list: Array<number> = [1, 2, 3];
 ```
 
-# Tuple
+# 튜플(Tuple)
 
 Tuple types allow you to express an array where the type of a fixed number of elements is known, but need not be the same.
 For example, you may want to represent a value as a pair of a `string` and a `number`:
@@ -180,7 +181,7 @@ You may commonly see this as the return type of functions that do not return a v
 
 ```ts
 function warnUser(): void {
-    alert("This is my warning message");
+alert("This is my warning message");
 }
 ```
 
@@ -190,7 +191,7 @@ Declaring variables of type `void` is not useful because you can only assign `un
 let unusable: void = undefined;
 ```
 
-# Null and Undefined
+# Null과 Undefined
 
 In TypeScript, both `undefined` and `null` actually have their own types named `undefined` and `null` respectively.
 Much like `void`, they're not extremely useful on their own:
@@ -225,18 +226,18 @@ Some examples of functions returning `never`:
 ```ts
 // Function returning never must have unreachable end point
 function error(message: string): never {
-    throw new Error(message);
+throw new Error(message);
 }
 
 // Inferred return type is never
 function fail() {
-    return error("Something failed");
+return error("Something failed");
 }
 
 // Function returning never must have unreachable end point
 function infiniteLoop(): never {
-    while (true) {
-    }
+while (true) {
+}
 }
 ```
 
@@ -270,8 +271,8 @@ let strLength: number = (someValue as string).length;
 The two samples are equivalent.
 Using one over the other is mostly a choice of preference; however, when using TypeScript with JSX, only `as`-style assertions are allowed.
 
-# A note about `let`
+# `let`에 관한 참고사항
 
-You may've noticed that so far, we've been using the `let` keyword instead of JavaScript's `var` keyword which you might be more familiar with.
-The `let` keyword is actually a newer JavaScript construct that TypeScript makes available.
-We'll discuss the details later, but many common problems in JavaScript are alleviated by using `let`, so you should use it instead of `var` whenever possible.
+알아차렸을지도 모르지만, 우리는 둘중에 아마도 더 친숙할 JavaScript의 `var`키워드 대신에 `let`을 사용하였습니다.
+`let`키워드는 TypeScript에서 이용가능한 실제 JavaScript 구문입니다.
+자세한 내용은 나중에 다루겠지만, `let`을 사용하면 JavaScript의 많은 일반적인 문제를 해결 할 수 있습니다, 따라서 가능하면 `var`대신 사용하기 바랍니다.
