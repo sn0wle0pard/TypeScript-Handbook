@@ -14,5 +14,10 @@
 * [모듈](pages/Modules.md)
 * [네임스페이스](pages/Namespaces.md) 
 * [네임스페이스와 모듈](pages/Namespaces and Modules.md)
-
+* [모듈 분석](pages/Module Resolution.md)
+* [선언 병합](pages/Declarations Merging.md)
+* [JSX](pages/JSX.md)
+* [데코레이터](pages/Decorators.md)
+* [믹스인](pages/Mixins.md)
+* [삼중 슬래시 지시문](pages/Triple-Slash Directives.md)
 
