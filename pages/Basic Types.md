@@ -5,7 +5,7 @@ In TypeScript, we support much the same types as you would expect in JavaScript,
 
 # 논리형(Boolean)
 
-The most basic datatype is the simple true/false value, which JavaScript and TypeScript call a `boolean` value.
+가장 기본적인 자료형은 JavaScript와 TypeScript에서 `boolean`값 이라고 부르는, true/false 값 입니다.
 
 ```ts
 let isDone: boolean = false;
@@ -27,17 +27,15 @@ let octal: number = 0o744;
 
 # 문자형(String)
 
-Another fundamental part of creating programs in JavaScript for webpages and servers alike is working with textual data.
-As in other languages, we use the type `string` to refer to these textual datatypes.
-Just like JavaScript, TypeScript also uses 큰 따옴표(`"`) or (`'`) to surround string data.
+웹 페이지와 서버의 JavaScript에서 프로그램을 생성하는 또 다른 기본적인 구성 요소는 텍스트 데이터와 함께 작업하는 것입니다. 다른 언어들과 마찬가지로, 우리는 문자형을 가리키기 위헤 `string`형식을 사용합니다. JavaScript와 마찬가지로 TypeScript도 큰 따옴표(`"`) 또는 (`'`)를 문자형 데이터를 감싸는데 이용합니다.
 
 ```ts
 let color: string = "blue";
 color = 'red';
 ```
 
-You can also use *템플릿 문자열*, which can span multiple lines and have embedded expressions.
-These strings are surrounded by the backtick/backquote (`` ` ``) character, and embedded expressions are of the form `${ expr }`.
+여러 줄과 embedded expressions을 가질 수 있는 *템플릿 문자열* 또한 이용할 수 있습니다.
+이런 문자열은 backtick/backquote (`` ` ``) 문자로 둘러 쌓여 있으며, embedded expressions은 `${ expr }`과 같은 형태로 되어 있습니다.
 
 ```ts
 let fullName: string = `Bob Bobbington`;
@@ -47,7 +45,7 @@ let sentence: string = `Hello, my name is ${ fullName }.
 I'll be ${ age + 1 } years old next month.`
 ```
 
-This is equivalent to declaring `sentence` like so:
+이는 이와 같은 `문장`을  선언하는 것과 같습니다:
 
 ```ts
 let sentence: string = "Hello, my name is " + fullName + ".\n\n" +
@@ -56,15 +54,15 @@ let sentence: string = "Hello, my name is " + fullName + ".\n\n" +
 
 # 배열(Array)
 
-TypeScript, like JavaScript, allows you to work with arrays of values.
-Array types can be written in one of two ways.
-In the first, you use the type of the elements followed by `[]` to denote an array of that element type:
+TypeScript는 JavaScript처럼 배열을 사용할 수 있습니다.
+배열은 두가지 방법중 하나로 선언 할 수 있습니다.
+첫번째로, 요소의 자료형을 선언한 뒤 `[]`를 작성하여 해당 자료형의 배열을 선언합니다:
 
 ```ts
 let list: number[] = [1, 2, 3];
 ```
 
-The second way uses a generic array type, `Array<elemType>`:
+두번째 방법은 `Array<elemType>`과 같은 제네릭 배열을 선언합니다:
 
 ```ts
 let list: Array<number> = [1, 2, 3];
@@ -72,65 +70,63 @@ let list: Array<number> = [1, 2, 3];
 
 # 튜플(Tuple)
 
-Tuple types allow you to express an array where the type of a fixed number of elements is known, but need not be the same.
-For example, you may want to represent a value as a pair of a `string` and a `number`:
+튜플 자료형은 요소의 개수와 자료형이 정해져 있는 배열을 표현 할 수 있습니다, 그러나 각 요소의 자료형이 같을 필요는 없습니다.
+예를 들어, `string`과 `number` 쌍을 표현하고 싶다면:
 
 ```ts
-// Declare a tuple type
+// 튜플 선언
 let x: [string, number];
-// Initialize it
+// 초기화
 x = ["hello", 10]; // OK
-// Initialize it incorrectly
+// 잘못된 초기화
 x = [10, "hello"]; // Error
 ```
 
-When accessing an element with a known index, the correct type is retrieved:
+알려진 인덱스가 있는 요소에 접근 할 때 올바른 유형이 검색됩니다:
 
 ```ts
 console.log(x[0].substr(1)); // OK
-console.log(x[1].substr(1)); // Error, 'number' does not have 'substr'
+console.log(x[1].substr(1)); // Error, 'number'형은 'substr'을 가지고 있지 않습니다
 ```
 
-When accessing an element outside the set of known indices, a union type is used instead:
+알려진 인덱스 집합 외부의 요소에 접근 할때는, 유니온(union) 자료형이 대신 이용 됩니다:
 
 ```ts
-x[3] = "world"; // OK, 'string' can be assigned to 'string | number'
+x[3] = "world"; // OK, 'string'형은 'string | number'에 접근 할 수 있습니다
 
-console.log(x[5].toString()); // OK, 'string' and 'number' both have 'toString'
+console.log(x[5].toString()); // OK, 'string'과 'number'형은 둘다 'toString' 메소드를 가지고 있습니다
 
-x[6] = true; // Error, 'boolean' isn't 'string | number'
+x[6] = true; // Error, 'boolean'형은 'string | number'형이 아닙니다
 ```
 
-Union types are an advanced topic that we'll cover in a later chapter.
+유니온(Union) 자료형은 추후에 다룰 고급 주제 입니다.
 
-# Enum
+# 열거형(Enum)
 
-A helpful addition to the standard set of datatypes from JavaScript is the `enum`.
-As in languages like C#, an enum is a way of giving more friendly names to sets of numeric values.
+`enum`은 JavaScript의 표준 자료형 모음에 추가된 유용한 자료형입니다. C#같은 언어에서 처럼, 열거형은 친숙한 이름을 숫자값의 집합에 제공하는 방법입니다.
 
 ```ts
 enum Color {Red, Green, Blue};
 let c: Color = Color.Green;
 ```
 
-By default, enums begin numbering their members starting at `0`.
-You can change this by manually setting the value of one of its members.
-For example, we can start the previous example at `1` instead of `0`:
+기본적으로, 열거형은 `0`부터 시작하여 요소에 순서를 매깁니다. 요소 중 하나의 순서를 수동으로 변경할 수 있습니다.
+예를 들어, 위의 예제를 `0`대신에 `1`부터 시작하게 변경 할 수 있습니다:
 
 ```ts
 enum Color {Red = 1, Green, Blue};
 let c: Color = Color.Green;
 ```
 
-Or, even manually set all the values in the enum:
+또는 수동으로 열거형의 순서를 모두 설정 할 수 있습니다:
 
 ```ts
 enum Color {Red = 1, Green = 2, Blue = 4};
 let c: Color = Color.Green;
 ```
 
-A handy feature of enums is that you can also go from a numeric value to the name of that value in the enum.
-For example, if we had the value `2` but weren't sure what that mapped to in the `Color` enum above, we could look up the corresponding name:
+열거형의 편리한 기능으로 숫자값을 열거형 값의 이름으로 이동할 수 있습니다.
+예를 들어, 값이 `2`이지만 위의 `Color`열거형에 매핑 된 것이 확실하지 않은 경우 해당 이름을 찾을 수 있습니다:
 
 ```ts
 enum Color {Red = 1, Green, Blue};
@@ -141,9 +137,10 @@ alert(colorName);
 
 # Any
 
-We may need to describe the type of variables that we do not know when we are writing an application.
-These values may come from dynamic content, e.g. from the user or a 3rd party library.
+프로그램을 작성할때 자료형을 모르는 변수를 선언할 필요가 있을 수 있습니다.
+이련 값들은 예를 들어 사용자나 서드파티 라이브러리에서 넘어오는 동적 컨텐트 일수 있습니다.
 In these cases, we want to opt-out of type-checking and let the values pass through compile-time checks.
+
 To do so, we label these with the `any` type:
 
 ```ts
