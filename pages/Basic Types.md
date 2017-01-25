@@ -222,7 +222,7 @@ Sometimes you'll end up in a situation where you'll know more about a value than
 
 _Type assertions_ are a way to tell the compiler "trust me, I know what I'm doing."
 
-Type assertion은 다른 언어들 에서의 형변환\(type cast\)과 비슷합니다, 그러나 특별한 검사를 하거나 데이터 재구성을 하지 않습니다. It has no runtime impact, and is used purely by the compiler. TypeScript assumes that you, the programmer, have performed any special checks that you need.
+Type assertion은 다른 언어들 에서의 형변환\(type cast\)과 비슷합니다, 그러나 특별히 검사를 하거나 데이터 재구성을 하지 않습니다. It has no runtime impact, and is used purely by the compiler. TypeScript assumes that you, the programmer, have performed any special checks that you need.
 
 Type assertions 은 두가지 형식이 있습니다. 하나는 "angle-bracket" 문법 입니다:
 
