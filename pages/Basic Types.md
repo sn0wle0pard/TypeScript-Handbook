@@ -165,8 +165,7 @@ list[1] = 100;
 
 # Void
 
-`void` is a little like the opposite of `any`: the absence of having any type at all.  
-You may commonly see this as the return type of functions that do not return a value:
+`void` 형은 `any`형과 조금 반대됩니다: 어떠한 자료형도 가지지 않습니다. 여러분은 아마 일반적으로 반환 값이 없는 함수의 유형으로 이것을 볼 수 있을 것입니다 :
 
 ```ts
 function warnUser(): void {
@@ -174,7 +173,7 @@ alert("This is my warning message");
 }
 ```
 
-Declaring variables of type `void` is not useful because you can only assign `undefined` or `null` to them:
+ `void` 형의 변수를 선언하는 것은 유용하지 않습니다,  그 이유는 `undefined` 나 `null` 만 할당할 수 있기 때문입니다:
 
 ```ts
 let unusable: void = undefined;
@@ -182,11 +181,10 @@ let unusable: void = undefined;
 
 # Null과 Undefined
 
-In TypeScript, both `undefined` and `null` actually have their own types named `undefined` and `null` respectively.  
-Much like `void`, they're not extremely useful on their own:
+TypeScript에서, `undefined`와 `null` 은 실제로 가각  `undefined` 와 `null` 형을 가집니다. `void`와 매우 비슷하게, 그들 스스로는 매우 유용하지는 않습니다:
 
 ```ts
-// Not much else we can assign to these variables!
+// 이 변수들에는 이 이값들 외에 할당할 수 있는 것이 별로 없습니다!
 let u: undefined = undefined;
 let n: null = null;
 ```
