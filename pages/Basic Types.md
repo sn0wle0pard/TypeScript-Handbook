@@ -12,10 +12,7 @@ let isDone: boolean = false;
 
 # 숫자형\(Number\)
 
-JavaScript 처럼 TypeScript의 모든 숫자는 부동소수점 값입니다.  
-이런 부동소수점 값들은 `number`자료형을 가집니다.  
-TypeScript는 16진수 밎 10진수 표기법 외에도,  
-ECMAScript 2015에 도입된 바이너리 밎 8진수를 지원합니다.
+JavaScript 처럼 TypeScript의 모든 숫자는 부동소수점 값입니다. 이런 부동소수점 값들은 `number`자료형을 가집니다. TypeScript는 16진수 밎 10진수 표기법 외에도, ECMAScript 2015에 도입된 바이너리 밎 8진수를 지원합니다.
 
 ```ts
 let decimal: number = 6;
@@ -33,8 +30,7 @@ let color: string = "blue";
 color = 'red';
 ```
 
-여러 줄과 embedded expressions을 가질 수 있는 _템플릿 문자열_ 또한 이용할 수 있습니다.  
-이런 문자열은 backtick/backquote \(``` ``\) 문자로 둘러 쌓여 있으며, embedded expressions은 `${ expr }`과 같은 형태로 되어 있습니다.
+여러 줄과 embedded expressions을 가질 수 있는 _템플릿 문자열_ 또한 이용할 수 있습니다. 이런 문자열은 backtick/backquote \(`````\) 문자로 둘러 쌓여 있으며, embedded expressions은 `${ expr }`과 같은 형태로 되어 있습니다.
 
 ```ts
 let fullName: string = `Bob Bobbington`;
@@ -69,8 +65,7 @@ let list: Array<number> = [1, 2, 3];
 
 # 튜플\(Tuple\)
 
-튜플 자료형은 요소의 개수와 자료형이 정해져 있는 배열을 표현 할 수 있습니다, 그러나 각 요소의 자료형이 같을 필요는 없습니다.  
-예를 들어, `string`과 `number` 쌍을 표현하고 싶다면:
+튜플 자료형은 요소의 개수와 자료형이 정해져 있는 배열을 표현 할 수 있습니다, 그러나 각 요소의 자료형이 같을 필요는 없습니다. 예를 들어, `string`과 `number` 쌍을 표현하고 싶다면:
 
 ```ts
 // 튜플 선언
@@ -173,7 +168,7 @@ alert("This is my warning message");
 }
 ```
 
- `void` 형의 변수를 선언하는 것은 유용하지 않습니다,  그 이유는 `undefined` 나 `null` 만 할당할 수 있기 때문입니다:
+`void` 형의 변수를 선언하는 것은 유용하지 않습니다,  그 이유는 `undefined` 나 `null` 만 할당할 수 있기 때문입니다:
 
 ```ts
 let unusable: void = undefined;
@@ -189,15 +184,11 @@ let u: undefined = undefined;
 let n: null = null;
 ```
 
-By default `null` and `undefined` are subtypes of all other types.  
-That means you can assign `null` and `undefined` to something like `number`.
+기본적으로 `null` 과 `undefined`는 모든 자료형의 하위 자료형입니다. 즉, `number` 같은 자료형에도`null` 과 `undefined` 를 할당 할 수 있습니다.
 
-However, when using the `--strictNullChecks` flag, `null` and `undefined` are only assignable to `void` and their respective types.  
-This helps avoid _many_ common errors.  
-In cases where you want to pass in either a `string` or `null` or `undefined`, you can use the union type `string | null | undefined`.  
-Once again, more on union types later on.
+그러나, `--strictNullChecks` 플래그를 사용할 때는 `null` 과 `undefined는` `void` 와 해당 자료형에만 할당 할 수 있습니다. 이렇게 하면 _많은_ 일반적인 오류를 피할 수 있습니다. `string` 이나 `null` 이나 `undefined`을 전달하려는 경우,  여러분은 유니온 `string | null | undefined`자료형을 이용할 수 있습니다. 다시 한번 알려드립니다, 유니온 자료형에 대한 자세한 내용은 나중에 다루겠습니다.
 
-> As a note: we encourage the use of `--strictNullChecks` when possible, but for the purposes of this handbook, we will assume it is turned off.
+> 참고 사항: 우리는 가능한 경우 `--strictNullChecks` 를 사용하는 것을 권장합니다, 그러나 이 핸드북의 목적 상 해제 되어 있다고 가정할 것입니다.
 
 # Never
 
@@ -238,8 +229,7 @@ A type assertion is like a type cast in other languages, but performs no special
 It has no runtime impact, and is used purely by the compiler.  
 TypeScript assumes that you, the programmer, have performed any special checks that you need.
 
-Type assertions have two forms.  
-One is the "angle-bracket" syntax:
+Type assertions have two forms.One is the "angle-bracket" syntax:
 
 ```ts
 let someValue: any = "this is a string";
@@ -255,8 +245,7 @@ let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 ```
 
-The two samples are equivalent.  
-Using one over the other is mostly a choice of preference; however, when using TypeScript with JSX, only `as`-style assertions are allowed.
+The two samples are equivalent.Using one over the other is mostly a choice of preference; however, when using TypeScript with JSX, only `as`-style assertions are allowed.
 
 # `let`에 관한 참고사항
 
