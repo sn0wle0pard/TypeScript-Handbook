@@ -192,24 +192,24 @@ let n: null = null;
 
 # Never
 
-The `never` type represents the type of values that never occur. For instance, `never` is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns; Variables also acquire the type `never` when narrowed by any type guards that can never be true.
+`never`형은 절대 발생하지 않는 값의 자료형을 나타냅니다. 예를 들어, `never` 는 반환 값이 없거나 항상 예외를 throw하는 함수 또는 화살표 함수표현\(arrow function expression\)의 반환형 입니다. 변수는 true가 아닌 유형의 가드에 의해 범위가 좁혀지면 `never` 형을 얻습니다.
 
-The `never` type is a subtype of, and assignable to, every type; however, _no_ type is a subtype of, or assignable to, `never` \(except `never` itself\). Even `any` isn't assignable to `never`.
+`never` 형은 모든 자료형의 하위 자료형이며, 모든 자료형에 할당할 수 있습니다. 그렇지만, _아무_  자료형도`never` 의 하위 자료형이 아니며, 할당 할 수 없습니다\(`never` 자신은 제외\). `any` 조차도 `never`에 할당 할 수 없습니다.
 
-Some examples of functions returning `never`:
+`never`를 반환하는 함수의 몇가지 예:
 
 ```ts
-// Function returning never must have unreachable end point
+// never를 반환하는 함수는 도달 할 수 없는 종점이 있어야 합니다
 function error(message: string): never {
     throw new Error(message);
 }
 
-// Inferred return type is never
+// 유추된 반환형은 X 입니다
 function fail() {
     return error("Something failed");
 }
 
-// Function returning never must have unreachable end point
+// never를 반환하는 함수는 도달 할 수 없는 종점이 있어야 합니다
 function infiniteLoop(): never {
     while (true) {
     }
@@ -220,7 +220,7 @@ function infiniteLoop(): never {
 
 Sometimes you'll end up in a situation where you'll know more about a value than TypeScript does. Usually this will happen when you know the type of some entity could be more specific than its current type.
 
-_Type assertions_ are a way to tell the compiler "trust me, I know what I'm doing." 
+_Type assertions_ are a way to tell the compiler "trust me, I know what I'm doing."
 
 Type assertion은 다른 언어들 에서의 형변환\(type cast\)과 비슷합니다, 그러나 특별한 확인을 하거나 데이터 재구성을 하지 않습니다. It has no runtime impact, and is used purely by the compiler. TypeScript assumes that you, the programmer, have performed any special checks that you need.
 
