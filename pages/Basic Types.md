@@ -1,6 +1,6 @@
 # 소개
 
-프로그램을 유용하게 하기 위해, 우리는 숫자, 문자열, 구조체, 논리값 등 가장 간단한 데이터 단위로 작업 할 수 있어야 합니다. TypeScript에서는 JavaScript에서 기대 할 수 있는 것과 함께 도움이 되도록 편리한 열거형을 지원 합니다.
+프로그램을 유용하게 하기 위해서, 우리는 숫자, 문자열, 구조체, 논리값 등 가장 간단한 데이터 단위로 작업 할 수 있어야 합니다. TypeScript에서는 JavaScript에서 기대 할 수 있는 것과 함께 도움이 되도록 편리한 열거형을 지원 합니다.
 
 # 논리형\(Boolean\)
 
@@ -164,7 +164,7 @@ list[1] = 100;
 
 ```ts
 function warnUser(): void {
-alert("This is my warning message");
+    alert("This is my warning message");
 }
 ```
 
@@ -201,32 +201,30 @@ Some examples of functions returning `never`:
 ```ts
 // Function returning never must have unreachable end point
 function error(message: string): never {
-throw new Error(message);
+    throw new Error(message);
 }
 
 // Inferred return type is never
 function fail() {
-return error("Something failed");
+    return error("Something failed");
 }
 
 // Function returning never must have unreachable end point
 function infiniteLoop(): never {
-while (true) {
-}
+    while (true) {
+    }
 }
 ```
 
 # Type assertions
 
-Sometimes you'll end up in a situation where you'll know more about a value than TypeScript does.  
-Usually this will happen when you know the type of some entity could be more specific than its current type.
+Sometimes you'll end up in a situation where you'll know more about a value than TypeScript does. Usually this will happen when you know the type of some entity could be more specific than its current type.
 
-_Type assertions_ are a way to tell the compiler "trust me, I know what I'm doing."  
-A type assertion is like a type cast in other languages, but performs no special checking or restructuring of data.  
-It has no runtime impact, and is used purely by the compiler.  
-TypeScript assumes that you, the programmer, have performed any special checks that you need.
+_Type assertions_ are a way to tell the compiler "trust me, I know what I'm doing." 
 
-Type assertions have two forms.One is the "angle-bracket" syntax:
+Type assertion은 다른 언어들 에서의 형변환\(type cast\)과 비슷합니다, 그러나 특별한 확인을 하거나 데이터 재구성을 하지 않습니다. It has no runtime impact, and is used purely by the compiler. TypeScript assumes that you, the programmer, have performed any special checks that you need.
+
+Type assertions 은 두가지 형식이 있습니다. 하나는 "angle-bracket" 문법 입니다:
 
 ```ts
 let someValue: any = "this is a string";
@@ -234,7 +232,7 @@ let someValue: any = "this is a string";
 let strLength: number = (<string>someValue).length;
 ```
 
-And the other is the `as`-syntax:
+다른 방법은 `as`-문법 입니다:
 
 ```ts
 let someValue: any = "this is a string";
@@ -242,11 +240,9 @@ let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 ```
 
-The two samples are equivalent.Using one over the other is mostly a choice of preference; however, when using TypeScript with JSX, only `as`-style assertions are allowed.
+두 샘플은 동일합니다. 둘중에 한가지를 고르는 것은 보통 취양에 따릅니다. 그러나, TypeScript를 JSX와 함께 사용할 때는, `as`-style assertions만 사용하실 수 있습니다.
 
 # `let`에 관한 참고사항
 
-알아차렸을지도 모르지만, 우리는 둘중에 아마도 더 친숙할 JavaScript의 `var`키워드 대신에 `let`을 사용하였습니다.  
-`let`키워드는 TypeScript에서 이용가능한 실제 JavaScript 구문입니다.  
-자세한 내용은 나중에 다루겠지만, `let`을 사용하면 JavaScript의 많은 일반적인 문제를 해결 할 수 있습니다, 따라서 가능하면 `var`대신 사용하기 바랍니다.
+알아차렸을지도 모르지만, 우리는 둘중에 아마도 더 친숙할 JavaScript의 `var`키워드 대신에 `let`을 사용하였습니다.`let`키워드는 TypeScript에서 이용가능한 실제 JavaScript 구문입니다.자세한 내용은 나중에 다루겠지만, `let`을 사용하면 JavaScript의 많은 일반적인 문제를 해결 할 수 있습니다, 따라서 가능하면 `var`대신 사용하기 바랍니다.
 
