@@ -30,7 +30,7 @@ let color: string = "blue";
 color = 'red';
 ```
 
-여러 줄과 embedded expressions을 가질 수 있는 _템플릿 문자열_ 또한 이용할 수 있습니다. 이런 문자열은 backtick/backquote \(`````\) 문자로 둘러 쌓여 있으며, embedded expressions은 `${ expr }`과 같은 형태로 되어 있습니다.
+여러 줄과 embedded expressions을 가질 수 있는 _템플릿 문자열_ 또한 이용할 수 있습니다. 이런 문자열은 backtick/backquote \(`````````\) 문자로 둘러 쌓여 있으며, embedded expressions은`````${ expr }\`과 같은 형태로 되어 있습니다.
 
 ```ts
 let fullName: string = `Bob Bobbington`;
@@ -192,12 +192,9 @@ let n: null = null;
 
 # Never
 
-The `never` type represents the type of values that never occur.  
-For instance, `never` is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns;  
-Variables also acquire the type `never` when narrowed by any type guards that can never be true.
+The `never` type represents the type of values that never occur. For instance, `never` is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns; Variables also acquire the type `never` when narrowed by any type guards that can never be true.
 
-The `never` type is a subtype of, and assignable to, every type; however, _no_ type is a subtype of, or assignable to, `never` \(except `never` itself\).  
-Even `any` isn't assignable to `never`.
+The `never` type is a subtype of, and assignable to, every type; however, _no_ type is a subtype of, or assignable to, `never` \(except `never` itself\). Even `any` isn't assignable to `never`.
 
 Some examples of functions returning `never`:
 
