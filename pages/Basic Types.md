@@ -218,11 +218,11 @@ function infiniteLoop(): never {
 
 # Type assertions
 
-Sometimes you'll end up in a situation where you'll know more about a value than TypeScript does. Usually this will happen when you know the type of some entity could be more specific than its current type.
+TypeScript를 사용하다보면 때로는 어떤 값에 대해 더 많은 가치를 알아야 할 상황에 처할 수 있습니다. 일반적으로 Type assertions은 어떤 entity의 유형을 현재 유형보다 더 구체적으로 표현할때 사용됩니다.
 
-_Type assertions_ are a way to tell the compiler "trust me, I know what I'm doing."
+_Type assertions_은 컴파일러에게 "날 믿어, 난 내가 무슨일을 하고 있는지 알고 있어."라고 말하는 방법입니다.
 
-Type assertion은 다른 언어들 에서의 형변환\(type cast\)과 비슷합니다, 그러나 특별히 검사를 하거나 데이터 재구성을 하지 않습니다. It has no runtime impact, and is used purely by the compiler. TypeScript assumes that you, the programmer, have performed any special checks that you need.
+Type assertion은 다른 언어들 에서의 형변환\(type cast\)과 비슷합니다, 그러나 특별한 검사를 하거나 데이터 재구성을 하지 않습니다. 이것은 런타임에는 영향을 미치지 않으며 컴파일러에서만 사용됩니다. TypeScript는 프로그래머가 필요한 특별한 검사를 수행했다고 가정합니다.
 
 Type assertions 은 두가지 형식이 있습니다. 하나는 "angle-bracket" 문법 입니다:
 
