@@ -1,8 +1,6 @@
 # TypeScript-Handbook
+이 문서는 [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/basic-types.html)을 한국어로 번역한 문서로, [GitBook](https://sn0wle0pard.gitbooks.io/typescript-handbook-ko)또는 [GitHub](https://github.com/sn0wle0pard/TypeScript-Handbook)에서 확인 하실 수 있습니다.
 
-[![Build Status](https://travis-ci.org/Microsoft/TypeScript-Handbook.svg)](https://travis-ci.org/Microsoft/TypeScript-Handbook)
+TypeScript Handbook은 TypeScript 언어에 관한 포괄적인 안내서 입니다.
 
-The TypeScript Handbook is a comprehensive guide to the TypeScript language.
-It is meant to be read online at [the TypeScript website](https://www.typescriptlang.org/docs/handbook/basic-types.html) or [directly from this repository](./pages/Basic Types.md).
-
-For a more formal description of the language, see the [latest TypeScript Language Specification](https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md).
+TypeSctipt 언어에 관한 보다 공식적인 설명은 [TypeScript 최신 명세서](https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md)을 참조하십시오.
