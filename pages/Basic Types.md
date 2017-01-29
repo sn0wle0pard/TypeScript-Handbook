@@ -1,6 +1,6 @@
 # 소개
 
-프로그램을 유용하게 하기 위해서, 우리는 숫자, 문자열, 구조체, 논리값 등 가장 간단한 데이터 단위로 작업 할 수 있어야 합니다. TypeScript에서는 JavaScript에서 기대 할 수 있는 것과 함께 도움이 되도록 편리한 열거형을 지원 합니다.
+프로그램을 유용하게 하기 위해서, 우리는 숫자, 문자열, 구조체, 논리값 등 가장 간단한 데이터 단위로 작업 할 수 있어야 합니다. TypeScript에서는 이를 위해서 JavaScript에서 기대 할 수 있는 것들과 함께 편리한 열거형을 지원 합니다.
 
 # 논리형\(Boolean\)
 
@@ -23,14 +23,14 @@ let octal: number = 0o744;
 
 # 문자형\(String\)
 
-웹 페이지와 서버의 JavaScript에서 프로그램을 생성하는 또 다른 기본적인 구성 요소는 텍스트 데이터와 함께 작업하는 것입니다. 다른 언어들과 마찬가지로, 우리는 문자형을 가리키기 위헤 `string`형식을 사용합니다. JavaScript와 마찬가지로 TypeScript도 큰 따옴표\(`"`\) 또는 \(`'`\)를 문자형 데이터를 감싸는데 이용합니다.
+JavaScript로 서버와 웹사이트를 만드는 또 다른 중요한 파트는 텍스트 데이터와 함께 작업하는 것입니다. 다른 언어들과 마찬가지로, 우리는 문자형을 가리키기 위헤 `string`자료형을 사용합니다. JavaScript와 마찬가지로 TypeScript도 큰 따옴표\(`"`\) 또는 \(`'`\)를 문자형 데이터를 감싸는데 이용합니다.
 
 ```ts
 let color: string = "blue";
 color = 'red';
 ```
 
-여러 줄과 embedded expressions을 가질 수 있는 _템플릿 문자열_ 또한 이용할 수 있습니다. 이런 문자열은 backtick/backquote (`` ` ``) 문자로 둘러 쌓여 있으며, embedded expressions은``${ expr }\`과 같은 형태로 되어 있습니다.
+여러 줄의 글과 embedded expressions을 지원하는 _템플릿 문자열_ 또한 이용할 수 있습니다. 이런 문자열은 backtick/backquote (`` ` ``) 문자로 둘러 쌓여 있으며, embedded expressions은``${ expr }`과 같은 형태로 되어 있습니다.
 
 ```ts
 let fullName: string = `Bob Bobbington`;
@@ -93,11 +93,11 @@ console.log(x[5].toString()); // OK, 'string'과 'number'형은 둘다 'toString
 x[6] = true; // Error, 'boolean'형은 'string | number'형이 아닙니다
 ```
 
-유니온\(Union\) 자료형은 추후에 다룰 고급 주제 입니다.
+유니온\(Union\) 자료형은 추후에 다룰 심화 주제 입니다.
 
 # 열거형\(Enum\)
 
-`enum`은 JavaScript의 표준 자료형 모음에 추가된 유용한 자료형입니다. C\#같은 언어에서 처럼, 열거형은 친숙한 이름을 숫자값의 집합에 제공하는 방법입니다.
+`enum`은 JavaScript의 표준 자료형 모음에 추가된 유용한 자료형입니다. C\#같은 언어에서와 같이, 열거형은 친숙한 이름을 숫자값의 집합에 제공하는 방법입니다.
 
 ```ts
 enum Color {Red, Green, Blue};
@@ -118,7 +118,7 @@ enum Color {Red = 1, Green = 2, Blue = 4};
 let c: Color = Color.Green;
 ```
 
-열거형의 편리한 기능으로 숫자값을 열거형 값의 이름으로 이동할 수 있습니다. 예를 들어, 값이 `2`이지만 위의 `Color`열거형에 매핑 된 것이 확실하지 않은 경우 해당 이름을 찾을 수 있습니다:
+열거형의 편리한 기능은 숫자값으로 열거형 값의 이름으로 이동할 수 있는 것입니다. 예를 들어, 값이 `2`이지만 위의 `Color`열거형에 매핑 된 것이 확실하지 않은 경우, 일치하는 이름을 찾아 볼 수 있습니다:
 
 ```ts
 enum Color {Red = 1, Green, Blue};
@@ -129,15 +129,15 @@ alert(colorName);
 
 # Any
 
-프로그램을 작성할때 자료형을 모르는 변수를 선언할 필요가 있을 수 있습니다.이련 값들은 예를 들어 사용자나 서드파티 라이브러리에서 넘어오는 동적 컨텐트 일 수 있습니다. 이런 경우에, 우리는 타입 체킹을 생략하고, 컴파일 시간 동안 값을 통과 시키고 싶습니다. 그렇게 하기 위해서, 우리는 이것들을`any` 형 으로 분류합니다:
+프로그램을 작성할때 자료형을 모르는 변수를 선언할 필요가 생길 수 있습니다. 이련 값들은 동적 컨텐트(예: 사용자나 서드파티 라이브러리에서 넘어오는 값)에서 올 수 있습니다. 이런 경우에, 우리는 타입 검사를 생략하고, 컴파일 시간 동안 값을 그냥 통과 시키고 싶습니다. 이를 위해 `any`자료형 으로 분류합니다:
 
 ```ts
 let notSure: any = 4;
 notSure = "maybe a string instead";
-notSure = false; // okay, definitely a boolean
+notSure = false; // okay, 확실히 boolean 입니다
 ```
 
-`any` 형은 기존의 자바스크립트와 함게 작업할 수 있는 강력한 방법이며, 컴파일 하는 중에 점진적으로 타입 체킹을 옵트인\(opt-in\)및 옵트아웃\(opt-out\)할 수 있습니다. 여러분은 다른 언어에서와 마찬가지로 `Object`가 비슷한 역할을 할 것으로 예상 하실 수 있습니다. 그러나 `Object` 유형으 변수는 값을 할당만 할 수 있습니다 - 실제로 존제하는 값이라도 임의의 메소드를 호출할 수는 없습니다:
+`any` 형은 기존의 자바스크립트와 함게 작업할 수 있는 강력한 방법이며, 컴파일 하는 중에 점진적으로 타입 검사를 옵트인\(opt-in\)및 옵트아웃\(opt-out\)할 수 있습니다. 여러분은 다른 언어에서와 마찬가지로 `Object`가 비슷한 역할을 할 것으로 예상 하실 수 있습니다. 그러나 `Object` 유형의 변수는 값을 할당만 할 수 있습니다 - 실제로 존제하는 값이라도 임의의 메소드를 호출할 수는 없습니다:
 
 ```ts
 let notSure: any = 4;
@@ -148,7 +148,7 @@ let prettySure: Object = 4;
 prettySure.toFixed(); // Error: Property 'toFixed' doesn't exist on type 'Object'.
 ```
 
-`any`형은 일부 자료형을 알고 있으나 모든 자료형을 알고 있지 않을때도 편리합니다. 예를 들어, 여러분은 배열을 가지고 있지만 그 배열은 여러가지 다른 유형이 섞여 있을 수 있습니다:
+`any`형은 일부 자료형만 알고 있을때 편리합니다. 예를 들어, 여러분은 배열을 가지고 있지만 그 배열은 여러가지 다른 유형이 섞여 있을 수 있습니다:
 
 ```ts
 let list: any[] = [1, true, "free"];
@@ -158,7 +158,7 @@ list[1] = 100;
 
 # Void
 
-`void` 형은 `any`형과 조금 반대됩니다: 어떠한 자료형도 가지지 않습니다. 여러분은 아마 일반적으로 반환 값이 없는 함수의 유형으로 이것을 볼 수 있을 것입니다 :
+`void` 형은 `any`형과 조금 반대 됩니다: 어떤 자료형도 가지지 않습니다. 여러분은 아마도 일반적으로 반환 값이 없는 함수의 자료형으로 볼 수 있을 것입니다 :
 
 ```ts
 function warnUser(): void {
@@ -166,7 +166,7 @@ function warnUser(): void {
 }
 ```
 
-`void` 형의 변수를 선언하는 것은 유용하지 않습니다,  그 이유는 `undefined` 나 `null` 만 할당할 수 있기 때문입니다:
+`void` 형의 변수를 선언하는 것은 유용하지 않습니다, 왜냐하면 `undefined` 나 `null` 만 할당할 수 있기 때문입니다:
 
 ```ts
 let unusable: void = undefined;
@@ -174,25 +174,25 @@ let unusable: void = undefined;
 
 # Null과 Undefined
 
-TypeScript에서, `undefined`와 `null` 은 실제로 가각  `undefined` 와 `null` 형을 가집니다. `void`와 매우 비슷하게, 그들 스스로는 매우 유용하지는 않습니다:
+TypeScript에서, `undefined`와 `null` 은 실제로 각각  `undefined` 와 `null` 형을 가집니다. `void`와 매우 비슷하게, 그 자체로는 매우 유용하지 않습니다:
 
 ```ts
-// 이 변수들에는 이 이값들 외에 할당할 수 있는 것이 별로 없습니다!
+// 이 변수들에는 이 값들 외에 할당할 수 있는 것이 별로 없습니다!
 let u: undefined = undefined;
 let n: null = null;
 ```
 
-기본적으로 `null` 과 `undefined`는 모든 자료형의 하위 자료형입니다. 즉, `number` 같은 자료형에도`null` 과 `undefined` 를 할당 할 수 있습니다.
+기본적으로 `null`과 `undefined`는 모든 자료형의 하위 자료형입니다. 즉, `number` 같은 자료형에도`null`과 `undefined`를 할당 할 수 있습니다.
 
-그러나, `--strictNullChecks` 플래그를 사용할 때는 `null` 과 `undefined는` `void` 와 해당 자료형에만 할당 할 수 있습니다. 이렇게 하면 _많은_ 일반적인 오류를 피할 수 있습니다. `string` 이나 `null` 이나 `undefined`을 전달하려는 경우,  여러분은 유니온 `string | null | undefined`자료형을 이용할 수 있습니다. 다시 한번 알려드립니다, 유니온 자료형에 대한 자세한 내용은 나중에 다루겠습니다.
+그러나, `--strictNullChecks` 플래그를 사용할 때는 `null` 과 `undefined`는 `void` 와 해당 자료형에만 할당 할 수 있습니다. 이렇게 하면 _많은_ 일반적인 오류를 피할 수 있습니다. `string` 또는 `null` 또는 `undefined`을 할당 하려는 경우, 여러분은 유니온 `string | null | undefined`자료형을 이용할 수 있습니다. 다시 한번 알려드립니다, 유니온 자료형에 대한 자세한 내용은 나중에 다루겠습니다.
 
-> 참고 사항: 우리는 가능한 경우 `--strictNullChecks` 를 사용하는 것을 권장합니다, 그러나 이 핸드북의 목적 상 해제 되어 있다고 가정할 것입니다.
+> 참고 사항: 우리는 가능한 경우 `--strictNullChecks`를 사용하는 것을 권장합니다, 그렇지만 이 핸드북의 목적 상 해제 되어 있다고 가정할 것입니다.
 
 # Never
 
-`never`형은 절대 발생하지 않는 값의 자료형을 나타냅니다. 예를 들어, `never` 는 반환 값이 없거나 항상 예외를 throw하는 함수 또는 화살표 함수표현\(arrow function expression\)의 반환형 입니다. 변수는 true가 아닌 유형의 가드에 의해 범위가 좁혀지면 `never` 형을 얻습니다.
+`never`형은 절대 발생하지 않는 값의 자료형을 나타냅니다. 예를 들어, `never`는 반환 값이 없거나 항상 예외를 throw하는 함수 또는 화살표 함수표현\(arrow function expression\)의 반환형 입니다. 변수는 true가 아닌 유형의 가드에 의해 범위가 좁혀지면 `never`형을 얻습니다.
 
-`never` 형은 모든 자료형의 하위 자료형이며, 모든 자료형에 할당할 수 있습니다. 그렇지만, _아무_  자료형도`never` 의 하위 자료형이 아니며, 할당 할 수 없습니다\(`never` 자신은 제외\). `any` 조차도 `never`에 할당 할 수 없습니다.
+`never`형은 모든 자료형의 하위 자료형이며, 모든 자료형에 할당할 수 있습니다. 그렇지만, _아무_ 자료형도 `never`의 하위 자료형이 아니며, 할당 할 수 없습니다\(`never` 자신은 제외\). `any`조차도 `never`에 할당 할 수 없습니다.
 
 `never`를 반환하는 함수의 몇가지 예:
 
@@ -202,7 +202,7 @@ function error(message: string): never {
     throw new Error(message);
 }
 
-// 유추된 반환형은 X 입니다
+// never형으로 유추 되었습니다
 function fail() {
     return error("Something failed");
 }
@@ -216,7 +216,7 @@ function infiniteLoop(): never {
 
 # Type assertions
 
-TypeScript를 사용하다보면 때로는 어떤 값에 대해 더 많은 가치를 알아야 할 상황에 처할 수 있습니다. 일반적으로 Type assertions은 어떤 entity의 유형을 현재 유형보다 더 구체적으로 표현할때 사용됩니다.
+TypeScript를 사용하다보면 때로는 어떤 값에 대해 더 많은 정보를 알아야 할 상황에 처할 수 있습니다. 일반적으로 Type assertions은 어떤 entity의 유형을 현재 유형보다 더 구체적으로 표현할때 사용됩니다.
 
 _Type assertions_은 컴파일러에게 "날 믿어, 난 내가 무슨일을 하고 있는지 알고 있어."라고 말하는 방법입니다.
 
@@ -238,9 +238,9 @@ let someValue: any = "this is a string";
 let strLength: number = (someValue as string).length;
 ```
 
-두 샘플은 동일합니다. 둘중에 한가지를 고르는 것은 보통 취양에 따릅니다. 그러나, TypeScript를 JSX와 함께 사용할 때는, `as`-style assertions만 사용하실 수 있습니다.
+두 예제는 동일합니다. 둘중에 한가지를 고르는 것은 보통 취양에 따릅니다. 그러나, TypeScript를 JSX와 함께 사용할 때는, `as`-style assertions만 사용하실 수 있습니다.
 
-# `let`에 관한 참고사항
+# `let`에 관한 참고 사항
 
-알아차렸을지도 모르지만, 우리는 둘중에 아마도 더 친숙할 JavaScript의 `var`키워드 대신에 `let`을 사용하였습니다.`let`키워드는 TypeScript에서 이용가능한 실제 JavaScript 구문입니다.자세한 내용은 나중에 다루겠지만, `let`을 사용하면 JavaScript의 많은 일반적인 문제를 해결 할 수 있습니다, 따라서 가능하면 `var`대신 사용하기 바랍니다.
+알아차렸을지도 모르지만, 우리는 여러분이 아마 더 친숙할 JavaScript의 `var`키워드 대신에 `let`을 사용하였습니다.`let`키워드는 TypeScript에서 사용 가능한 실제 JavaScript 문법입니다. 자세한 내용은 나중에 다루겠지만, `let`을 사용하면 JavaScript의 많은 일반적인 문제를 해결 할 수 있습니다, 따라서 가능하면 `var`대신 사용하기 바랍니다.
 
