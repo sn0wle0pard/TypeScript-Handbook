@@ -40,7 +40,7 @@ let sentence: string = `Hello, my name is ${ fullName }.
 I'll be ${ age + 1 } years old next month.`
 ```
 
-이는 이와 같은 `문장`을  선언하는 것과 같습니다:
+이것은 다음과 같은 `문장`을  선언하는 것과 같습니다:
 
 ```ts
 let sentence: string = "Hello, my name is " + fullName + ".\n\n" +
